@@ -3,9 +3,225 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="icon" href="../src/icons/mainIcon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Style/general-css/general.css" />
+    <link rel="stylesheet" href="../Style/header-css/header.css" />
+    <link rel="stylesheet" href="../Style/checkout-css/checkout.css" />
+    <title>MeowTopia - Shopping Cart</title>
   </head>
   <body>
-    <div>hi</div>
+    <div class="header">
+      <div class="header-left-section">
+        <a class="header-link" href="../index.html">
+          <img class="meowtopia-logo" src="../src/icons/mainIcon.ico" />
+        </a>
+        <div class="meowtopia-name">MeowTopia</div>
+      </div>
+
+      <div class="header-middle-section">
+        <a href="./cats-lists.html" class="nav-link">Adoption Page</a>
+        <a href="./stories.html" class="nav-link">Cat rescue tales</a>
+        <a href="./shop.html" class="nav-link">Cat foods and toys</a>
+        <a href="./services.html" class="nav-link">Our Services</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </div>
+
+      <button class="mobile-menu-button" aria-label="Toggle menu">☰</button>
+
+      <div class="header-right-section">
+        <a class="cart-link" href="./checkOut.html">
+          <img
+            class="cart-icon"
+            src="../src/icons/header-icons/cart-icon.png"
+          />
+          <div class="cart-quantity">3</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cart-container">
+      <h1 class="cart-title">Your Shopping Cart 🛒</h1>
+      
+      <div class="cart-content">
+        <div class="cart-items">
+          <!-- Cart Item 1 -->
+          <div class="cart-item">
+            <div class="item-details">
+              <h3>Premium Cat Food</h3>
+              <p class="item-description">High-quality protein-rich cat food for adult cats</p>
+              <div class="item-price">$24.99</div>
+            </div>
+            <div class="item-quantity">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" value="1" min="1" max="10" class="quantity-input">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="item-total">$24.99</div>
+            <button class="remove-item">×</button>
+          </div>
+
+          <!-- Cart Item 2 -->
+          <div class="cart-item">
+            <div class="item-details">
+              <h3>Interactive Cat Toy</h3>
+              <p class="item-description">Engaging toy with feathers and bells</p>
+              <div class="item-price">$15.99</div>
+            </div>
+            <div class="item-quantity">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" value="1" min="1" max="10" class="quantity-input">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="item-total">$15.99</div>
+            <button class="remove-item">×</button>
+          </div>
+
+          <!-- Cart Item 3 -->
+          <div class="cart-item">
+            <div class="item-details">
+              <h3>Cozy Cat Bed</h3>
+              <p class="item-description">Soft and comfortable bed for your feline friend</p>
+              <div class="item-price">$39.99</div>
+            </div>
+            <div class="item-quantity">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" value="1" min="1" max="10" class="quantity-input">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="item-total">$39.99</div>
+            <button class="remove-item">×</button>
+          </div>
+        </div>
+
+        <div class="cart-summary">
+          <h2>Order Summary</h2>
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <span>$80.97</span>
+          </div>
+          <div class="summary-item">
+            <span>Shipping</span>
+            <span>$5.99</span>
+          </div>
+          <div class="summary-item">
+            <span>Tax</span>
+            <span>$8.70</span>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span>$95.66</span>
+          </div>
+          <button class="checkout-button">Proceed to Checkout</button>
+          <button class="continue-shopping">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const headerMiddleSection = document.querySelector('.header-middle-section');
+        
+        mobileMenuButton.addEventListener('click', function() {
+          headerMiddleSection.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.header-middle-section') && 
+              !event.target.closest('.mobile-menu-button')) {
+            headerMiddleSection.classList.remove('active');
+          }
+        });
+
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+          }
+        });
+
+        // Cart functionality
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        const minusButtons = document.querySelectorAll('.minus');
+        const plusButtons = document.querySelectorAll('.plus');
+        const removeButtons = document.querySelectorAll('.remove-item');
+        const continueShoppingBtn = document.querySelector('.continue-shopping');
+
+        // Update quantity
+        function updateQuantity(input, change) {
+          let value = parseInt(input.value) + change;
+          value = Math.max(1, Math.min(10, value));
+          input.value = value;
+          updateItemTotal(input);
+        }
+
+        // Update item total
+        function updateItemTotal(input) {
+          const item = input.closest('.cart-item');
+          const price = parseFloat(item.querySelector('.item-price').textContent.replace('$', ''));
+          const quantity = parseInt(input.value);
+          const total = (price * quantity).toFixed(2);
+          item.querySelector('.item-total').textContent = `$${total}`;
+          updateCartTotal();
+        }
+
+        // Update cart total
+        function updateCartTotal() {
+          const itemTotals = Array.from(document.querySelectorAll('.item-total'))
+            .map(el => parseFloat(el.textContent.replace('$', '')));
+          const subtotal = itemTotals.reduce((sum, total) => sum + total, 0);
+          const shipping = 5.99;
+          const tax = (subtotal * 0.1075).toFixed(2);
+          const total = (subtotal + shipping + parseFloat(tax)).toFixed(2);
+
+          document.querySelector('.summary-item:nth-child(1) span:last-child').textContent = `$${subtotal.toFixed(2)}`;
+          document.querySelector('.summary-item:nth-child(3) span:last-child').textContent = `$${tax}`;
+          document.querySelector('.summary-total span:last-child').textContent = `$${total}`;
+        }
+
+        // Event listeners for quantity buttons
+        minusButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const input = button.nextElementSibling;
+            updateQuantity(input, -1);
+          });
+        });
+
+        plusButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const input = button.previousElementSibling;
+            updateQuantity(input, 1);
+          });
+        });
+
+        // Event listeners for remove buttons
+        removeButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            button.closest('.cart-item').remove();
+            updateCartTotal();
+          });
+        });
+
+        // Continue shopping button
+        continueShoppingBtn.addEventListener('click', () => {
+          window.location.href = './shop.html';
+        });
+
+        // Checkout button
+        document.querySelector('.checkout-button').addEventListener('click', () => {
+          alert('Thank you for your order! This is a demo page.');
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Details - MeowTopia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Style/header-css/header.css" />
+    <link rel="stylesheet" href="../Style/cat-details-css/cat-details.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-left-section">
+        <a class="header-link" href="../index.html">
+          <img class="meowtopia-logo" src="../src/icons/mainIcon.ico" />
+        </a>
+        <div class="meowtopia-name">MeowTopia</div>
+      </div>
+
+      <div class="header-middle-section">
+        <a href="./cats-lists.html" class="nav-link">Adoption Page</a>
+        <a href="./stories.html" class="nav-link">Cat rescue tales</a>
+        <a href="./shop.html" class="nav-link">Cat foods and toys</a>
+        <a href="./services.html" class="nav-link">Our Services</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </div>
+
+      <button class="mobile-menu-button" aria-label="Toggle menu">☰</button>
+
+      <div class="header-right-section">
+        <a class="cart-link" href="./checkOut.html">
+          <img
+            class="cart-icon"
+            src="../src/icons/header-icons/cart-icon.png"
+          />
+          <div class="cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-details-container">
+      <div class="cat-profile">
+        <div class="cat-image-container">
+          <img src="../src/Images/adoption-page-imgs/cute 🥰.jpeg" alt="Cat Profile" class="cat-image" />
+        </div>
+        <div class="cat-info">
+          <h1 class="cat-name">Luna</h1>
+          <div class="cat-stats">
+            <div class="stat">
+              <span class="stat-label">Age:</span>
+              <span class="stat-value">2 years</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Breed:</span>
+              <span class="stat-value">Domestic Shorthair</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gender:</span>
+              <span class="stat-value">Female</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Color:</span>
+              <span class="stat-value">Calico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-story">
+        <h2>Luna's Story</h2>
+        <p>
+          Meet Luna, a beautiful calico cat with a heart full of love and a story that will touch your soul. 
+          Luna was found wandering the streets during a cold winter night, seeking shelter and warmth. 
+          Our rescue team discovered her huddled under a cardboard box, and it was love at first sight.
+        </p>
+        <p>
+          Despite her rough start, Luna has blossomed into a gentle and affectionate companion. 
+          She loves to curl up in laps, play with feather toys, and watch birds from the window. 
+          Her favorite pastime is chasing laser dots and taking long naps in sunny spots.
+        </p>
+        <h3>Personality Traits</h3>
+        <ul>
+          <li>Affectionate and loving</li>
+          <li>Playful and energetic</li>
+          <li>Gets along well with other cats</li>
+          <li>Loves attention and cuddles</li>
+        </ul>
+        <h3>Health & Care</h3>
+        <ul>
+          <li>Spayed and up to date on vaccinations</li>
+          <li>Microchipped for safety</li>
+          <li>Regular vet check-ups</li>
+          <li>Healthy appetite and active lifestyle</li>
+        </ul>
+      </div>
+
+      <div class="adoption-info">
+        <h2>Adoption Information</h2>
+        <p>
+          Luna is ready to find her forever home! She would do best in a loving family environment 
+          where she can receive plenty of attention and playtime. She's adaptable to both apartment 
+          and house living, as long as she has space to play and explore.
+        </p>
+        <div class="adoption-requirements">
+          <h3>Requirements</h3>
+          <ul>
+            <li>Indoor-only living environment</li>
+            <li>Regular playtime and exercise</li>
+            <li>Quality cat food and fresh water</li>
+            <li>Loving and patient family</li>
+          </ul>
+        </div>
+        <button class="adopt-button">Adopt Luna</button>
+      </div>
+    </div>
+
+    <script>
+      // Add mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const headerMiddleSection = document.querySelector('.header-middle-section');
+        
+        mobileMenuButton.addEventListener('click', function() {
+          headerMiddleSection.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.header-middle-section') && 
+              !event.target.closest('.mobile-menu-button')) {
+            headerMiddleSection.classList.remove('active');
+          }
+        });
+
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html> 
