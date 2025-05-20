@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../src/icons/mainIcon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Style/general-css/general.css" />
+    <link rel="stylesheet" href="../Style/header-css/header.css" />
+    <link rel="stylesheet" href="../Style/contact-css/contact.css" />
+    <title>MeowTopia - Contact Us</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-left-section">
+        <a class="header-link" href="../index.html">
+          <img class="meowtopia-logo" src="../src/icons/mainIcon.ico" />
+        </a>
+        <div class="meowtopia-name">MeowTopia</div>
+      </div>
+
+      <div class="header-middle-section">
+        <a href="./cats-lists.html" class="nav-link">Adoption Page</a>
+        <a href="./stories.html" class="nav-link">Cat rescue tales</a>
+        <a href="./shop.html" class="nav-link">Cat foods and toys</a>
+        <a href="./services.html" class="nav-link">Our Services</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </div>
+
+      <button class="mobile-menu-button" aria-label="Toggle menu">☰</button>
+
+      <div class="header-right-section">
+        <a class="cart-link" href="./checkOut.html">
+          <img
+            class="cart-icon"
+            src="../src/icons/header-icons/cart-icon.png"
+          />
+          <div class="cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-container">
+      <h1 class="contact-title">Get in Touch 🐾</h1>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <div class="info-item">
+            <h3>📍 Address</h3>
+            <p>123 Purrfect Street<br>Catville, CA 90210</p>
+          </div>
+          
+          <div class="info-item">
+            <h3>📞 Phone</h3>
+            <p>Main: (555) 123-4567<br>Emergency: (555) 987-6543</p>
+          </div>
+          
+          <div class="info-item">
+            <h3>✉️ Email</h3>
+            <p>General: hello@meowtopia.com<br>Adoption: adopt@meowtopia.com</p>
+          </div>
+          
+          <div class="info-item">
+            <h3>⏰ Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Send us a Message</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="adoption">Adoption Inquiry</option>
+                <option value="services">Services</option>
+                <option value="support">Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const headerMiddleSection = document.querySelector('.header-middle-section');
+        
+        mobileMenuButton.addEventListener('click', function() {
+          headerMiddleSection.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.header-middle-section') && 
+              !event.target.closest('.mobile-menu-button')) {
+            headerMiddleSection.classList.remove('active');
+          }
+        });
+
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html> 

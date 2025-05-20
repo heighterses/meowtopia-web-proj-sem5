@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../src/icons/mainIcon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Style/general-css/general.css" />
+    <link rel="stylesheet" href="../Style/header-css/header.css" />
+    <link rel="stylesheet" href="../Style/services-css/services.css" />
+    <title>MeowTopia - Services</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-left-section">
+        <a class="header-link" href="../index.html">
+          <img class="meowtopia-logo" src="../src/icons/mainIcon.ico" />
+        </a>
+        <div class="meowtopia-name">MeowTopia</div>
+      </div>
+
+      <div class="header-middle-section">
+        <a href="./cats-lists.html" class="nav-link">Adoption Page</a>
+        <a href="./stories.html" class="nav-link">Cat rescue tales</a>
+        <a href="./shop.html" class="nav-link">Cat foods and toys</a>
+        <a href="./services.html" class="nav-link">Our Services</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </div>
+
+      <button class="mobile-menu-button" aria-label="Toggle menu">☰</button>
+
+      <div class="header-right-section">
+        <a class="cart-link" href="./checkOut.html">
+          <img
+            class="cart-icon"
+            src="../src/icons/header-icons/cart-icon.png"
+          />
+          <div class="cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="services-container">
+      <h1 class="services-title">Our Services 🐱</h1>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h2>Cat Adoption</h2>
+          <p>Find your perfect feline companion through our carefully curated adoption process. We ensure every cat finds their forever home.</p>
+          <a href="./cats-lists.html" class="service-link">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <h2>Veterinary Care</h2>
+          <p>Professional veterinary services including check-ups, vaccinations, and emergency care for your beloved cats.</p>
+          <a href="./contact.html" class="service-link">Book Appointment</a>
+        </div>
+
+        <div class="service-card">
+          <h2>Cat Boarding</h2>
+          <p>Safe and comfortable boarding facilities for your cats when you're away. We provide personalized care and attention.</p>
+          <a href="./contact.html" class="service-link">Reserve Space</a>
+        </div>
+
+        <div class="service-card">
+          <h2>Grooming Services</h2>
+          <p>Professional grooming services including bathing, nail trimming, and coat care to keep your cat looking their best.</p>
+          <a href="./contact.html" class="service-link">Schedule Grooming</a>
+        </div>
+
+        <div class="service-card">
+          <h2>Behavioral Training</h2>
+          <p>Expert guidance and training programs to help address behavioral issues and strengthen your bond with your cat.</p>
+          <a href="./contact.html" class="service-link">Get Started</a>
+        </div>
+
+        <div class="service-card">
+          <h2>Cat Sitting</h2>
+          <p>In-home cat sitting services for when you're away. Our experienced sitters provide loving care in your cat's familiar environment.</p>
+          <a href="./contact.html" class="service-link">Book a Sitter</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const headerMiddleSection = document.querySelector('.header-middle-section');
+        
+        mobileMenuButton.addEventListener('click', function() {
+          headerMiddleSection.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.header-middle-section') && 
+              !event.target.closest('.mobile-menu-button')) {
+            headerMiddleSection.classList.remove('active');
+          }
+        });
+
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../src/icons/mainIcon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Style/general-css/general.css" />
+    <link rel="stylesheet" href="../Style/header-css/header.css" />
+    <link rel="stylesheet" href="../Style/shop-css/shop.css" />
+    <title>MeowTopia - Shop</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-left-section">
+        <a class="header-link" href="../index.html">
+          <img class="meowtopia-logo" src="../src/icons/mainIcon.ico" />
+        </a>
+        <div class="meowtopia-name">MeowTopia</div>
+      </div>
+
+      <div class="header-middle-section">
+        <a href="./cats-lists.html" class="nav-link">Adoption Page</a>
+        <a href="./stories.html" class="nav-link">Cat rescue tales</a>
+        <a href="./shop.html" class="nav-link">Cat foods and toys</a>
+        <a href="./services.html" class="nav-link">Our Services</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </div>
+
+      <button class="mobile-menu-button" aria-label="Toggle menu">☰</button>
+
+      <div class="header-right-section">
+        <a class="cart-link" href="./checkOut.html">
+          <img
+            class="cart-icon"
+            src="../src/icons/header-icons/cart-icon.png"
+          />
+          <div class="cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="shop-container">
+      <h1 class="shop-title">Cat Shop 🛍️</h1>
+      <div class="shop-categories">
+        <div class="category-section">
+          <h2>Premium Cat Food</h2>
+          <div class="products-grid">
+            <!-- Products will be dynamically loaded -->
+          </div>
+        </div>
+        
+        <div class="category-section">
+          <h2>Toys & Entertainment</h2>
+          <div class="products-grid">
+            <!-- Products will be dynamically loaded -->
+          </div>
+        </div>
+
+        <div class="category-section">
+          <h2>Cat Care Essentials</h2>
+          <div class="products-grid">
+            <!-- Products will be dynamically loaded -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const headerMiddleSection = document.querySelector('.header-middle-section');
+        
+        mobileMenuButton.addEventListener('click', function() {
+          headerMiddleSection.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.header-middle-section') && 
+              !event.target.closest('.mobile-menu-button')) {
+            headerMiddleSection.classList.remove('active');
+          }
+        });
+
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html> 
