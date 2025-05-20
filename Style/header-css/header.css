@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Tan Pearl";
+  src: url("/fonts/tan-pearl-font/tan-pearl.ttf") format("truetype"); /* Adjust the path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  background-color: #d23449;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  z-index: 100;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.header-left-section {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.meowtopia-logo {
+  height: 40px;
+  width: 40px;
+}
+.meowtopia-name {
+  margin-left: 15px;
+  font-size: 16px;
+  font-family: "Tan Pearl", sans-serif;
+  color: white;
+}
+.header-link {
+  margin-left: 25px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.header-link:hover {
+  border: 1px solid white;
+}
+
+.header-middle-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.header-middle-section div {
+  margin-left: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.header-right-section {
+  width: 150px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  position: relative;
+}
+
+.cart-text {
+  margin-top: 2px;
+  font-size: 12px;
+  margin-left: 5px;
+  color: white;
+  position: absolute;
+  top: 48px;
+  left: 7px;
+}
+
+.cart-quantity {
+  color: rgb(246, 246, 246);
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 26px;
+  text-align: center;
+}

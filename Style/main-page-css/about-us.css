@@ -1,0 +1,52 @@
+.about-us-section {
+  margin-top: -10px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.about-us-heading {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 22px;
+}
+.about-us-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  margin-top: -20px;
+}
+.about-us-img-container {
+  margin-bottom: 100px;
+}
+.about-us-img {
+  height: 190px;
+  width: 190px;
+  object-fit: contain;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+.copyright-text {
+  font-size: 10px;
+  margin-left: 40px;
+}
+.about-us-descriptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 28px;
+  margin-left: -20px;
+}
+li {
+  font-size: 14px;
+  cursor: pointer;
+}
+h4 {
+  margin-bottom: 8px;
+}
+.cat-details-container {
+  margin-top: 35px;
+}
+.discover-list,
+.company-list,
+.cat-guide-list,
+.connection-list {
+  list-style: none;
+}

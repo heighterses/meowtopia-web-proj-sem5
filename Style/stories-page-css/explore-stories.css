@@ -1,0 +1,146 @@
+body {
+  padding-bottom: 300px;
+}
+
+.heading-section {
+  margin-top: 85px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.heading {
+  text-align: center;
+  z-index: 1;
+}
+
+.heading-description {
+  color: rgb(110, 109, 122);
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.explore-stories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 35px;
+  padding-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.explore-stories-container {
+  height: 270px;
+  width: 346px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  cursor: pointer;
+}
+
+.story-img-container {
+  height: 230px;
+  width: 345px;
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.story-img-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(110, 109, 122, 0.4);
+  border-radius: 10px;
+  backdrop-filter: blur(-20px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+.story-img-container:hover::before {
+  opacity: 1;
+}
+
+.read-button-container {
+  position: absolute;
+  bottom: 39%;
+  left: 37%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
+}
+.read-button-container::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.story-img-container:hover .read-button-container {
+  opacity: 1;
+}
+.read-button {
+  margin-left: 100px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid rgb(201, 201, 201);
+  cursor: pointer;
+  font-size: 12px;
+  background-color: rgb(205, 64, 111);
+  color: white;
+}
+
+.story-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.story-details {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+}
+
+.rescuer-details {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 6px;
+}
+.rescuer-img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 90px;
+  margin-left: 15px;
+}
+.rescuer-name {
+  font-size: 14px;
+  margin-left: 10px;
+}
+.stats-details {
+  margin-right: 12px;
+}
+.stats-details,
+.likes-stats,
+.views-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.views-img,
+.likes-img {
+  height: 15px;
+  width: 15px;
+}
+
+.views-count,
+.likes-count {
+  font-size: 14px;
+  margin-left: -6px;
+}
