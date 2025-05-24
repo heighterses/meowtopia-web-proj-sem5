@@ -393,34 +393,6 @@
       </div>
     </div>
 
-    <script>
-      // Add mobile menu functionality
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const headerMiddleSection = document.querySelector('.header-middle-section');
-        
-        mobileMenuButton.addEventListener('click', function() {
-          headerMiddleSection.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-          if (!event.target.closest('.header-middle-section') && 
-              !event.target.closest('.mobile-menu-button')) {
-            headerMiddleSection.classList.remove('active');
-          }
-        });
-
-        // Set active nav link based on current page
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        navLinks.forEach(link => {
-          if (currentPage.includes(link.getAttribute('href'))) {
-            link.classList.add('active');
-          }
-        });
-      });
-    </script>
+    <script src="../js/main.js"></script>
   </body>
 </html>
